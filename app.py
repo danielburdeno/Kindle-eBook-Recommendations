@@ -37,7 +37,7 @@ collab_model = pickle.load(open('Model/collab_model.sav', 'rb'))
 
 # Combine meta_all and dtm for content features dataframe
 model_df = df_dtm.merge(df_meta_all, left_index=True, right_index=True)
-model_df.drop(columns=['title', 'author', 'word_wise', 'lending'], inplace=True)
+model_df.drop(columns=['title', 'author_y', 'word_wise', 'lending'], inplace=True)
 model_df = pd.get_dummies(model_df, columns=['genre'])
 model_df.head()
 
@@ -49,6 +49,7 @@ def user_recommend_books(reviewer_input, n_recs):
     not_reviewed.reset_index(inplace=True)
     not_reviewed['est_rating'] = not_reviewed['asin'].apply(lambda x: collab_model.predict(reviewer_input, x).est)
     not_reviewed.sort_values(by='est_rating', ascending=False, inplace=True)
+    not_reviewed.rename(columns={'title':'Title', 'author':'Author', 'genre':'Genre', 'print_length':'# Pages', 'word_wise':'Word Wise', 'lending':'Lending'}, inplace=True)
     return not_reviewed.head(n_recs)
 
 # Second function for content based recommendations
@@ -59,6 +60,7 @@ def book_review_recommend(book_input, n_recs2):
     cos_sim.sort_values(by = 0, ascending = False, inplace=True)
     results = cos_sim.head(n_recs2+1).index.values[1:]
     results_df = df_meta_all.loc[results]
+    results_df.rename(columns={'title':'Title', 'author':'Author', 'genre':'Genre', 'print_length':'# Pages', 'word_wise':'Word Wise', 'lending':'Lending'}, inplace=True)
     return results_df
 
 st.sidebar.subheader('This recommendation system can make two forms of recommendations.')
