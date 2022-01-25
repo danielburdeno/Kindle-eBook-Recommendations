@@ -2,9 +2,7 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 import pickle
-import surprise
 
-from surprise.prediction_algorithms import SVD
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MinMaxScaler
 from PIL import Image
@@ -93,25 +91,3 @@ else:
         results2 = book_review_recommend(book_input, n_recs2)
         st.write(f"You entered the book {df_meta_all.loc[book_input, 'title']} by {df_meta_all.loc[book_input, 'author']}")
         st.table(results2)
-
-
-
-#st.write('Existing Users!')
-
-#reviewer_input = st.text_input("Please input your unique amazon reviewerID.")
-
-#rec_button = st.button("Get to reading!!")
-
-#st.write('Or find books based on similiar content.')
-
-#book_input = st.text_input("Please input a unique book product ID.")
-
-#book_button = st.button("Get to reading!!", key=2)
-
-#if rec_button:
-    
-
-#if book_button:
-    #results2 = book_review_recommend(book_input, n_recs)
-    #st.write(f"You entered the book {df_meta_all.loc[book_input, 'title']} by {df_meta_all.loc[book_input, 'brand']}")
-    #st.table(results2)
