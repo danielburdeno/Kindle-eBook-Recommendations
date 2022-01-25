@@ -37,7 +37,7 @@ collab_model = pickle.load(open('Model/collab_model.sav', 'rb'))
 
 # Combine meta_all and dtm for content features dataframe
 model_df = df_dtm.merge(df_meta_all, left_index=True, right_index=True)
-model_df.drop(columns=['title', 'brand', 'word_wise', 'lending'], inplace=True)
+model_df.drop(columns=['title', 'author', 'word_wise', 'lending'], inplace=True)
 model_df = pd.get_dummies(model_df, columns=['genre'])
 model_df.head()
 
@@ -89,7 +89,7 @@ else:
     book_button = st.button("Get to reading!!", key=2)
     if book_button:
         results2 = book_review_recommend(book_input, n_recs2)
-        st.write(f"You entered the book {df_meta_all.loc[book_input, 'title']} by {df_meta_all.loc[book_input, 'brand']}")
+        st.write(f"You entered the book {df_meta_all.loc[book_input, 'title']} by {df_meta_all.loc[book_input, 'author']}")
         st.table(results2)
 
 
