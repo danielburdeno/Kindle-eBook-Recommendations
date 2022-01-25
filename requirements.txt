@@ -34,7 +34,6 @@ pytz==2021.3
 pytz-deprecation-shim==0.1.0.post0
 requests==2.27.1
 scikit-surprise==1.1.1
-sip==4.19.13
 smart-open==5.2.1
 smmap==5.0.0
 spacy==2.3.7
