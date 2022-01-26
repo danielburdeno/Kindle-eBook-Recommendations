@@ -12,6 +12,8 @@ Currently eBooks are outsold by print books at about a 4 to 1 ratio. In 2020 the
 
 The kindle store is also full of cheap reads, with some eBooks even being free with certain subsripctions like prime and unlimited. A broad span of genres are available ranging from things like self-help books, cookbooks, and photography books to more traditional literature genres like Science Fiction & Fantasy and Romance novels. A final huge plus for the advocacy of eBooks is the ease in which readers can rate and reviews books they have either just read or already read. This can all be done via the same platform used to access and read the eBook (aka kindle). Ultimately this plays into the collection of more review and rating data wich in turn can attribute to better performing recommendations for each indiviudal user. A quality recommendation system can thus create a positive feedback loop that not only enhances itself but promotoes the increase in eBook sales across the board.
 
+Sources: [1](https://www.tonerbuzz.com/blog/paper-books-vs-ebooks-statistics/) [2](https://www.statista.com/topics/1474/e-books/#:~:text=E%2Dbook%20sales%20in%20the,consistent%20annual%20increases%20since%202018.)
+
 
 
 
