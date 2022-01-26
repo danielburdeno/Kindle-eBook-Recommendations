@@ -5,9 +5,7 @@ Authors: Daniel Burdeno
 
 
 ## Overview
-
-
-
+This project aims to build a two system approach to recommending Kindle eBook's to both existing reviewers and new users looking to find similar books. For existing reviewers a collaborative approach is taken by comparing similar reviewer profiles based on exisitng ratings. A content-based approach is taken in order to recommend books based on similar review text data and can be used by anyone.
 
 ## Business Problem
 
