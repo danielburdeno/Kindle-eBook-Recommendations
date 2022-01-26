@@ -57,5 +57,5 @@ Authors: Daniel Burdeno
 ├── README.md
 ├── app.py
 ├── requirements.txt
-├── setup.sh
+└── setup.sh
 ```
