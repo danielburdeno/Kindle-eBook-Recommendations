@@ -50,7 +50,8 @@ The CF system was based on reviewer rating data to create 'user profiles' which 
 
 ![Surprise](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/Images/Model_bar.png)
 
-The CF system function takes in a reviewers unique Amazon ID and returns n-recommendations based on their profile in comparison to other users. This is demonstrated below. As one can see the CF system returns a variety of genres and eBook content and is based on prior reviewed books from the reviewer. 
+The CF system function takes in a reviewers unique Amazon ID and returns n-recommendations based on their profile in comparison to other users. This is demonstrated below. As one can see the CF system returns a variety of genres and eBook content and is based on prior reviewed books from the reviewer.
+
 ![collabex](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/collabexv2.png)
 
 For a more in depth look at this process please see my Collaborative Filtering [notebook](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/CollaborativeFiltering.ipynb).
@@ -63,9 +64,11 @@ Content features for the corpus were then extracted from the cleaned review text
 I want to highlight below, using two eBook examples, how this recommendation system is able to distinguish between content within genres. Both of the inputted eBooks are within the Literature and Fiction Genre however contain vastly different content, one is a thriller and the other a romance. Recommendations for these books follow the same convention.
 
 Thriller:
+
 ![ex1](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/content1.png) 
 
 Romance:
+
 ![ex2](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/content2.png)
 
 For a more in depth look at this process please see my Content-Based [notebook](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/ContentBased.ipynb).
@@ -92,6 +95,7 @@ For a more in depth look at this process please see my Content-Based [notebook](
 ├── Procfile
 ├── README.md
 ├── app.py
+├── environment.yml
 ├── requirements.txt
 └── setup.sh
 ```
