@@ -81,8 +81,8 @@ For a more in depth look at this process please see my Content-Based [notebook](
 ├── CollaborativeFiltering.ipynb
 ├── ContentBased.ipynb
 ├── DataPrepFinal.ipynb
-├── final_presentation.pdf
 ├── LICENSE
+├── Presentation.pdf
 ├── Procfile
 ├── README.md
 ├── app.py
