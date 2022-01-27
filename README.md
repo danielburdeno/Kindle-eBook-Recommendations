@@ -75,6 +75,15 @@ Romance:
 
 For a more in depth look at this process please see my Content-Based [notebook](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/ContentBased.ipynb).
 
+### App Development
+In order to achieve real world access to the two recommendation sytsmes developed above I created an application intended for deployment utilizng streamlit. This app incorporated both functions created for the collaborative filtering and content-based system. Relevant data needed for the app was saved and pushed to github and can be found in the Data folder.
+
+Deployment of the app was inhibited by the maximum memory that is allocated to free streamlit accounts. Given the inclusion of both recommender systems the developed app needs over 2gb of virtual memory to run. It can however be run locally by anyone who would like to fork and download this github repository. Once downloaded the appropriate environment can be activated using the requirements.txt file and then the app can be run locally by utilzing streamlit. In a local terminal type 'streamlit run app.py', which will open the application within a local host. A demonstration video of the app can be see below.
+
+https://user-images.githubusercontent.com/92398209/151427313-bcfac107-b04b-4fe1-a882-9da8a99c17fe.mp4
+
+The code for the app can found [here](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/app.py)
+
 ## Conclusions
 Collaborative Filtering:
 
