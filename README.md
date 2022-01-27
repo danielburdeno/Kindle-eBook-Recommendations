@@ -45,7 +45,7 @@ The CF system was based on reviewer rating data to create 'user profiles' which 
 ![Surprise](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/Images/Model_bar.png)
 
 The CF system function takes in a reviewers unique Amazon ID and returns n-recommendations based on their profile in comparison to other users. This is demonstrated below. As one can see the CF system returns a variety of genres and eBook content and is based on prior reviewed books from the reviewer. 
-![collabex]()
+![collabex](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/collabexv2.png)
 
 For a more in depth look at this process please see my Collaborative Filtering [notebook](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/CollaborativeFiltering.ipynb).
 
