@@ -37,9 +37,16 @@ For the collaborative filtering approach I removed any reviewer who had less tha
 For a more in depth look at data preparation steps please see my [notebook](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/DataPrepFinal.ipynb)
 
 ## Methods and Models
+I utilized two seperate approachs in order to produce a range of eBook recommendations: a collaborative filtering (CF) system and a content-based (CB) system. I choose to attempt a dual approach to providing recommendations so I could address a potential cold start problem. The CF system can only be used by existing book reviewers who have previously rated books, while the CB system can be used by anyone looking to find book recommendations, based on similar boks. Once users have read and rated a set of books, this new reviewer data can be entered into the data pipeline and the CF model retrained to provide recommendations for these users. For each of these approachs a function was written that can return n-recommendations for eBooks. These functions were then used to produce a heroku app which can be deployed to provide quality recommendations.
 
 ### Collaborative Filtering
+The CF system was based on reviewer rating data to create 'user profiles' which could then be compared with one another. Similar users, based on prior eBook ratings, were then used to return the top recommended books by predicting an estimated rating. This approach is known as user to user. I iterated through several model algorithms and grid searchs before settling on my final model (SVD GS3). This model achieved my lowest Root Mean Squared Error, coming in at 0.781 rating (RMSE). 
+
 ![Surprise](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/Images/Model_bar.png)
+
+PLACEHOLDER TEXT, CB FUNCTION AT WORK
+
+For a more in depth look at the CB process please see my [notebook](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/CollaborativeFiltering.ipynb)
 
 ### Content-Based
 
