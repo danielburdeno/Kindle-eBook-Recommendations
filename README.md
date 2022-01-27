@@ -17,6 +17,7 @@ Sources: [1](https://www.tonerbuzz.com/blog/paper-books-vs-ebooks-statistics/) [
 ## Data Understanding
 Data for this project was pulled from a compiled dataset of Amazon kindle store reviews and meta data in two seperate JSON files. The datasets can be found [here](https://nijianmo.github.io/amazon/index.html). I utlized the smaller dataset known as 5-core which contained data for products and reviewers with at least 5 entries. Data from the Kindle Store sets were used, both the 5-core review data and the full metadata file. Due to the large size of these datasets I downloaded them locally and saved to an external repository outside of github.
 
+Data Instructions: The images below highlight the two compressed JSON files that I downloaded. Naviatged through the linked page requires an entry form of basic information (name, email) in order to begin downloads. Given the size of the two datasets allow several minutes for the downloads to occur. Once saved to your local drive (I placed the data one repository above the linked github repository) the JSON files can be loaded into jupyter notebooks via pandas (pd.read_json) using the compression='gz' and lines=True. Due to the size of the review text dataset be prepared for a large memory usage when loading it in.
 Review Data:
 ![rev](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/InkedRevimg_LI.jpg) 
 
