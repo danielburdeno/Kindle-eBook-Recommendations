@@ -51,9 +51,15 @@ For a more in depth look at the CB process please see my [notebook](https://gith
 ### Content-Based
 The CB system was based on review text data which was compiled together for every book in my data set. Each book's review text acted as a document within the larger text corpus (all books). The Texthero package was utlized to clean and prepare review text for feature extraction. Texthero is a relatively new package that helps to streamline many natural language processing tools, and can be used to create custom cleaning pipelines for text data. Please see the [documentation](https://texthero.org/docs/getting-started) and [github](https://github.com/jbesomi/texthero) for more information and other uses. 
 
-Content features for the corpus were then extracted from the cleaned review text data using the standard sklearn Tfidfvectorizor. Tf-idf scores were then combined with genre and print length data mined from the meta dataset. I purposely exlcuded using author as a feature to make sure the model woudln't just return book series or same authors as I wanted a larger variety of recommendations. The created function takes in a book title and n number of recommendations, provided by the user, and returns book recommendations. As expected from a CB system returned recommendations follow genre lines. I want to highlight below, using two eBook examples, how this recommendation system is able to distinush content within genres. Both of the inputted eBooks are within the Literature and Fiction Genre however contain vastly different content, one is a romance novel and the other a thriller. Recommendations for these books follow the same convention.
+Content features for the corpus were then extracted from the cleaned review text data using the standard sklearn Tfidfvectorizor. Tf-idf scores were then combined with genre and print length data mined from the meta dataset. I purposely exlcuded using author as a feature to make sure the model woudln't just return book series or same authors as I wanted a larger variety of recommendations. The created function takes in a book title and n number of recommendations, provided by the user, and returns book recommendations. As expected from a CB system returned recommendations follow genre lines. 
 
-![ex1](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/content1.png) ![ex2](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/content2.png)
+I want to highlight below, using two eBook examples, how this recommendation system is able to distinguish between content within genres. Both of the inputted eBooks are within the Literature and Fiction Genre however contain vastly different content, one is a thriller and the other a romance. Recommendations for these books follow the same convention.
+
+Thriller:
+![ex1](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/content1.png) 
+
+Romance
+![ex2](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/content2.png)
 
 ## Conclusions
 
