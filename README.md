@@ -22,9 +22,11 @@ Data for this project was pulled from a compiled dataset of Amazon kindle store 
 Data Instructions: The images below highlight the two compressed JSON files that I downloaded. Naviatged through the linked page requires an entry form of basic information (name, email) in order to begin downloads. Given the size of the two datasets allow several minutes for the downloads to occur. Once saved to your local drive (I placed the data one repository above the linked github repository) the JSON files can be loaded into jupyter notebooks via pandas (pd.read_json) using the compression='gz' and lines=True. Due to the size of the review text dataset be prepared for a large memory usage when loading it in.
 
 Review Data:
+
 ![rev](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/InkedRevimg_LI.jpg) 
 
 Meta Data:
+
  ![meta](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/InkedMetaimgv2_LI.jpg)
 
 Once the data was loaded in, cleaned, and processed I saved seperate csv files locally as well, again due to size constraints. Several data sets including a reduced user dataframe and two meta data files were saved and pushed to github as seen in the repository structure. These files are needed for heroku to run the app that was developed. 
@@ -47,7 +49,7 @@ For a more in depth look please see my Data Preparation [notebook](https://githu
 ## Methods and Models
 I utilized two seperate approachs in order to produce a range of eBook recommendations: a collaborative filtering (CF) system and a content-based (CB) system. I choose to attempt a dual approach to providing recommendations so I could address a potential cold start problem. The CF system can only be used by existing book reviewers who have previously rated books, while the CB system can be used by anyone looking to find book recommendations, based on similar boks. Once users have read and rated a set of books, this new reviewer data can be entered into the data pipeline and the CF model retrained to provide recommendations for these users. For each of these approachs a function was written that can return n-recommendations for eBooks. These functions were then used to produce a heroku app which can be deployed to provide quality recommendations.
 
-### Collaborative Filtering
+### Collaborative Filtering:
 The CF system was based on reviewer rating data to create 'user profiles' which could then be compared with one another. Similar users, based on prior eBook ratings, were then used to return the top recommended books by predicting an estimated rating. This approach is known as user to user. I iterated through several model algorithms and grid searchs before settling on my final model (SVD GS3). This model achieved my lowest Root Mean Squared Error, coming in at 0.781 rating (RMSE). 
 
 ![Surprise](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/Images/Model_bar.png)
@@ -58,7 +60,7 @@ The CF system function takes in a reviewers unique Amazon ID and returns n-recom
 
 For a more in depth look at this process please see my Collaborative Filtering [notebook](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/CollaborativeFiltering.ipynb).
 
-### Content-Based
+### Content-Based:
 The CB system was based on review text data which was compiled together for every book in my data set. Each book's review text acted as a document within the larger text corpus (all books). The Texthero package was utlized to clean and prepare review text for feature extraction. Texthero is a relatively new package that helps to streamline many natural language processing tools, and can be used to create custom cleaning pipelines for text data. Please see the [documentation](https://texthero.org/docs/getting-started) and [github](https://github.com/jbesomi/texthero) for more information and other uses. 
 
 Content features for the corpus were then extracted from the cleaned review text data using the standard sklearn Tfidfvectorizor. Tf-idf scores were then combined with genre and print length data mined from the meta dataset. I purposely exlcuded using author as a feature to make sure the model woudln't just return book series or same authors as I wanted a larger variety of recommendations. The created function takes in a book title and n number of recommendations, provided by the user, and returns book recommendations. As expected from a CB system returned recommendations follow genre lines. 
@@ -82,7 +84,7 @@ Deployment of the app was inhibited by the maximum memory that is allocated to f
 
 https://user-images.githubusercontent.com/92398209/151427313-bcfac107-b04b-4fe1-a882-9da8a99c17fe.mp4
 
-The code for the app can found [here](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/app.py)
+The code for the app can found [here](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/app.py).
 
 ## Conclusions
 Collaborative Filtering:
