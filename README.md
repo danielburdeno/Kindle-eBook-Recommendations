@@ -103,7 +103,7 @@ A unique benefit of this content-based approach as compared to the collaborative
 
 As expected this content-based system recommends books along convential genre lines, which can be seen as a beneift and also a slight limitation. An investigation into the exlcusion of genre might be warranted as well as an depth look at re-classifing genres within the dataset using unsupervised clustering. Further eBook review data is also needed to expand the range of possible eBook recommendations. New books are continually being published and their review data can be easily entered through the cleaning pipeline that utlizes texthero. This information can then be merged into the exisiting dataset thus expanding the potential recommendation pool.
 
-Final Thoughts: Utlizing a dual recommendation approach for eBooks, Amazon can play into their existing one-click purchase philosphy to help tap into the large potential market for eBooks on their kinle platform.
+Final thoughts: Utlizing a dual recommendation approach for eBooks, Amazon can play into their existing one-click purchase philosophy to help tap into the large potential market for eBooks on their kinlde platform.
 
 ### Next Steps
 - More data (reviewers, ratings, books)
