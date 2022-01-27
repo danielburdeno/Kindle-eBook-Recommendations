@@ -7,6 +7,8 @@ Authors: Daniel Burdeno
 ## Overview
 This project aims to build a two system approach to recommending Kindle eBook's to both existing reviewers and new users looking to find similar books. For existing reviewers a collaborative approach is taken by comparing similar reviewer profiles based on exisitng ratings. A content-based approach is taken in order to recommend books based on similar review text data and can be used by anyone.
 
+Please see my [presentation](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Presentation.pdf) for a high level overview of the project.
+
 ## Business Problem
 Currently eBooks are outsold by print books at about a 4 to 1 ratio. In 2020 there was 191 million eBooks sold. While Amazon holds over 70% of the market in eBooks via their kindle platform there is a large untapped potential for increasing eBook sales and promoting the use of eReaders compared to print. By utilzing quality recommendation systems Amazon can boost the interest and useablity of eBooks thus improving upon this market. The kindle platform and eBooks in general are incredidly accesibile for anyone with a tablet, smartphone, computer, or eReader. These eBooks can be immediatley purchased from a multitude of platforms and are able to read within minutes of purchase, which is far superior to obtaining a print book. This notion of real time purchase and useablily plays greater into Amazon's one click purchase philsophy. 
 
