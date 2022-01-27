@@ -34,7 +34,7 @@ For data preparation and cleaning I primarily used built-in pandas methods and f
 
 For the collaborative filtering approach I removed any reviewer who had less than 5 book ratings in order to achieve quality results. A main limitation of collaborative filtering is the need for existing fleshed out user profiles. These reviews were left in for the content-based approach to provide more text data. In order to extract relevant information from text reviews I compiled all the reviews for each book into a new dataframe that could be used with nature language processing tools.
 
-For a more in depth look at data preparation steps please see my [notebook](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/DataPrepFinal.ipynb)
+For a more in depth look please see my Data Preparation [notebook](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/DataPrepFinal.ipynb).
 
 ## Methods and Models
 I utilized two seperate approachs in order to produce a range of eBook recommendations: a collaborative filtering (CF) system and a content-based (CB) system. I choose to attempt a dual approach to providing recommendations so I could address a potential cold start problem. The CF system can only be used by existing book reviewers who have previously rated books, while the CB system can be used by anyone looking to find book recommendations, based on similar boks. Once users have read and rated a set of books, this new reviewer data can be entered into the data pipeline and the CF model retrained to provide recommendations for these users. For each of these approachs a function was written that can return n-recommendations for eBooks. These functions were then used to produce a heroku app which can be deployed to provide quality recommendations.
@@ -44,9 +44,10 @@ The CF system was based on reviewer rating data to create 'user profiles' which 
 
 ![Surprise](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/Images/Model_bar.png)
 
-PLACEHOLDER TEXT, CB FUNCTION AT WORK
+The CF system function takes in a reviewers unique Amazon ID and returns n-recommendations based on their profile in comparison to other users. This is demonstrated below. As one can see the CF system returns a variety of genres and eBook content and is based on prior reviewed books from the reviewer. 
+![collabex](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/collabex.png)
 
-For a more in depth look at the CB process please see my [notebook](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/CollaborativeFiltering.ipynb)
+For a more in depth look at this process please see my Collaborative Filtering [notebook](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/CollaborativeFiltering.ipynb).
 
 ### Content-Based
 The CB system was based on review text data which was compiled together for every book in my data set. Each book's review text acted as a document within the larger text corpus (all books). The Texthero package was utlized to clean and prepare review text for feature extraction. Texthero is a relatively new package that helps to streamline many natural language processing tools, and can be used to create custom cleaning pipelines for text data. Please see the [documentation](https://texthero.org/docs/getting-started) and [github](https://github.com/jbesomi/texthero) for more information and other uses. 
@@ -58,8 +59,10 @@ I want to highlight below, using two eBook examples, how this recommendation sys
 Thriller:
 ![ex1](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/content1.png) 
 
-Romance
+Romance:
 ![ex2](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/Images/content2.png)
+
+For a more in depth look at this process please see my Content-Based [notebook](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/ContentBased.ipynb).
 
 ## Conclusions
 
