@@ -28,7 +28,7 @@ df_meta_all = pd.read_csv('Data/meta_all.csv', index_col='asin')
 df_meta_all.drop(columns =['Unnamed: 0'], inplace=True)
 
 # Document term matrix from tf-idf vectorizor
-df_dtm = pd.read_parquet('Data/df_dtm.parquet')
+df_dtm = pd.read_parquet('Data/df_dtm_new.parquet')
 
 # Import final collab model
 collab_model = pickle.load(open('Model/collab_model.sav', 'rb'))
@@ -37,7 +37,13 @@ collab_model = pickle.load(open('Model/collab_model.sav', 'rb'))
 model_df = df_dtm.merge(df_meta_all, left_index=True, right_index=True)
 model_df.drop(columns=['title', 'author_y', 'word_wise', 'lending'], inplace=True)
 model_df = pd.get_dummies(model_df, columns=['genre'])
-model_df.head()
+
+cols = ['print_length']
+scaler = MinMaxScaler()
+scaled = scaler.fit_transform(model_df[cols])
+scaled_column = pd.DataFrame(scaled, index=model_df.index, columns=cols)
+# Set print_length equal to the scaled numbers
+model_df['print_length'] = scaled_column['print_length']
 
 # Def function using model to return recommendations
 def user_recommend_books(reviewer_input, n_recs):
