@@ -24,10 +24,10 @@ Once the data was loaded in, cleaned, and processed I saved seperate csv files l
 Citation: 
 
 Justifying recommendations using distantly-labeled reviews and fined-grained aspects
+
 Jianmo Ni, Jiacheng Li, Julian McAuley
+
 Empirical Methods in Natural Language Processing (EMNLP), 2019 [pdf](https://cseweb.ucsd.edu//~jmcauley/pdfs/emnlp19a.pdf)
-
-
 
 
 ## Data Preparation
@@ -38,9 +38,10 @@ Empirical Methods in Natural Language Processing (EMNLP), 2019 [pdf](https://cse
 
 ## Methods and Models
 
+### Collaborative Filtering
+![Surprise](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/Images/Model_bar.png)
 
-
-
+### Content-Based
 
 ## Conclusions
 
