@@ -17,7 +17,11 @@ Sources: [1](https://www.tonerbuzz.com/blog/paper-books-vs-ebooks-statistics/) [
 ## Data Understanding
 Data for this project was pulled from a compiled dataset of Amazon kindle store reviews and meta data in two seperate JSON files. The datasets can be found [here](https://nijianmo.github.io/amazon/index.html). I utlized the smaller dataset known as 5-core which contained data for products and reviewers with at least 5 entries. Data from the Kindle Store sets were used, both the 5-core review data and the full metadata file. Due to the large size of these datasets I downloaded them locally and saved to an external repository outside of github.
 
-![rev](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/Images/Revimg.png) ![meta](https://github.com/danielburdeno/Kindle-Recommendations/blob/main/Images/Metaimg.png)
+Review Data:
+![rev]() 
+
+Meta Data
+![meta]()
 
 Once the data was loaded in, cleaned, and processed I saved seperate csv files locally as well, again due to size constraints. Several data sets including a reduced user dataframe and two meta data files were saved and pushed to github as seen in the repository structure. These files are needed for heroku to run the app that was developed. 
 
