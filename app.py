@@ -47,18 +47,24 @@ def user_recommend_books(reviewer_input, n_recs):
     not_reviewed.reset_index(inplace=True)
     not_reviewed['est_rating'] = not_reviewed['asin'].apply(lambda x: collab_model.predict(reviewer_input, x).est)
     not_reviewed.sort_values(by='est_rating', ascending=False, inplace=True)
-    not_reviewed.rename(columns={'title':'Title', 'author':'Author', 'genre':'Genre', 'print_length':'# Pages', 'word_wise':'Word Wise', 'lending':'Lending'}, inplace=True)
+    not_reviewed.rename(columns={'title':'Title', 'author':'Author',
+                                'genre':'Genre', 'print_length':'# Pages',
+                                'word_wise':'Word Wise', 'lending':'Lending'}, inplace=True)
+    not_reviewed[['# Pages', 'Word Wise', 'Lending']] = not_reviewed[['# Pages', 'Word Wise', 'Lending']].astype(int)
     return not_reviewed.head(n_recs)
 
 # Second function for content based recommendations
-def book_review_recommend(book_input, n_recs2):
-    y = np.array(model_df.loc[book_input]).reshape(1, -1)
+def book_review_recommend(book, n_recs2):
+    y = np.array(model_df.loc[book]).reshape(1, -1)
     cos_sim = cosine_similarity(model_df, y)
     cos_sim = pd.DataFrame(data=cos_sim, index=model_df.index)
     cos_sim.sort_values(by = 0, ascending = False, inplace=True)
     results = cos_sim.head(n_recs2+1).index.values[1:]
     results_df = df_meta_all.loc[results]
-    results_df.rename(columns={'title':'Title', 'author':'Author', 'genre':'Genre', 'print_length':'# Pages', 'word_wise':'Word Wise', 'lending':'Lending'}, inplace=True)
+    results_df.rename(columns={'title':'Title', 'author':'Author',
+                                'genre':'Genre', 'print_length':'# Pages',
+                                'word_wise':'Word Wise', 'lending':'Lending'}, inplace=True)
+    results_df[['# Pages', 'Word Wise', 'Lending']] = results_df[['# Pages', 'Word Wise', 'Lending']].astype(int)
     return results_df
 
 st.sidebar.subheader('This recommendation system can make two forms of recommendations.')
@@ -84,10 +90,11 @@ if page == 'Existing Reviewers':
 
 else:
     st.header("You chose the similiar books option.")
-    book_input = st.text_input("Please input a unique book product ID.")
+    book_input = st.text_input("Please enter a book title.")
+    book = df_meta_all.index[df_meta_all['title'] == book_input]
     n_recs2 = st.number_input("Please enter the number of recommendations you would like.", max_value=20, key=2)
     book_button = st.button("Get to reading!!", key=2)
     if book_button:
-        results2 = book_review_recommend(book_input, n_recs2)
-        st.write(f"You entered the book {df_meta_all.loc[book_input, 'title']} by {df_meta_all.loc[book_input, 'author']}")
+        results2 = book_review_recommend(book, n_recs2)
+        st.write(f"You entered the book {book_input} by {df_meta_all.loc[book, 'author'][0]}")
         st.table(results2)
