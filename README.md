@@ -74,8 +74,28 @@ Romance:
 For a more in depth look at this process please see my Content-Based [notebook](https://github.com/danielburdeno/Kindle-eBook-Recommendations/blob/main/ContentBased.ipynb).
 
 ## Conclusions
+Collaborative Filtering:
+
+In conclusion the collaborative filtering model produced a recommendation system that can predict estimated ratings and thus return top recommendations. It works by comparing individual reviewer profiles and determining similar users. Estimate ratings are then predicted based on latent factors between these profiles. The system performs very well for reviewers who have a wide range of ratings, spanning the scale of 1-5) but under performs with reviewers who only rated books at the top end of the scale. This inherently makes sense as these reviewer profiles do not adequately capture specific preferences across different eBooks.
+
+One major limitation of this recommendation system in known as the cold start problem. The trained SVD model cannot predict ratings for new users who have not reviewed any eBooks within the dataset. The model needs an adequate number of prior review/rating history in order to form accurate reviewer profiles. New user information can however be entered into the pipeline and merged with existing data on which the model can be retrained (using the same hyperparameters). This is one of the major reasons I choose the SVD model over the SVD++ model given the large difference in training/fit times.
+
+Users not in the amazon kindle review system can however utilize the content-based recommendation sytem developed in the adjacent notebook. This can recommend similar books based a single eBook entry which can then be used to start the formation of a reviewer profile, to ultimatley be fed into the collaborative system. These systems in tandem can help Amazon promote the use and sale of eBooks over print books by encouraging reviewers to rate and review books as the read and finish them. The kindle platform allows for seamless product recommendation, selection, purchase, and rating. New user data can be easily collected and the model retrained in order to capture these reviewers.
+
+Content-Based:
+
+In conclusion the content-based recommendation system works by taking in review text and vectorizing this into individual word features that can then be used to desrcribe each book as a large mutli-dimensional vector. A comparison of these vectors (using cosine similarity) is then used to return the top closest eBooks as recommendations for the user. It takes in a book title as the input. Currently this system is limited to eBooks within my dataset but it can easily be expanded to many other books as long as review text exists for them. Sites like goodreads contain a wealth of reviews and could be mined for further book entries.
+
+A unique benefit of this content-based approach as compared to the collaborative approach seen here is its ability to be used by anyone looking to find similar books. It does not require any prior review or rating from any specifc user. These approachs can be used in tandem to provide robust and varied eBook recommendations for kindle users and would help to promote the sale of further eBooks. Implementation within the kindle system can be achieved with ease and this would also allow for continued data collection to help further refine the system. The more reviews and text that each book has the better the term vector will be able to distinquish and make accurate recommendations.
+
+As expected this content-based system recommends books along convential genre lines, which can be seen as a beneift and also a slight limitation. An investigation into the exlcusion of genre might be warranted as well as an depth look at re-classifing genres within the dataset using unsupervised clustering. Further eBook review data is also needed to expand the range of possible eBook recommendations. New books are continually being published and their review data can be easily entered through the cleaning pipeline that utlizes texthero. This information can then be merged into the exisiting dataset thus expanding the potential recommendation pool.
+
+Final Thoughts: Utlizing a dual recommendation approach for eBooks, Amazon can play into their existing one-click purchase philosphy to help tap into the large potential market for eBooks on their kinle platform.
 
 ### Next Steps
+- More data (reviewers, ratings, books)
+- Genre expansion & potential re-classify
+- Amazon as host for app deployment
 
 ## Repository Structure
 ```
