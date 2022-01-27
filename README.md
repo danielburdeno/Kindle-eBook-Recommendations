@@ -15,8 +15,15 @@ The kindle store is also full of cheap reads, with some eBooks even being free w
 Sources: [1](https://www.tonerbuzz.com/blog/paper-books-vs-ebooks-statistics/) [2](https://www.statista.com/topics/1474/e-books/#:~:text=E%2Dbook%20sales%20in%20the,consistent%20annual%20increases%20since%202018.)
 
 ## Data Understanding
-Data for this project was pulled from a compiled dataset of Amazon kindle store reviews and meta data in two seperate JSON files. The datasets can be found [here](https://nijianmo.github.io/amazon/index.html).
-Citation: Justifying recommendations using distantly-labeled reviews and fined-grained aspects
+Data for this project was pulled from a compiled dataset of Amazon kindle store reviews and meta data in two seperate JSON files. The datasets can be found [here](https://nijianmo.github.io/amazon/index.html). I utlized the smaller dataset known as 5-core which contained data for products and reviewers with at least 5 entries. Data from the Kindle Store sets were used, both the 5-core review data and the full metadata file. Due to the large size of these datasets I downloaded them locally and saved to an external repository outside of github.
+
+![rev](
+
+Once the data was loaded in, cleaned, and processed I saved seperate csv files locally as well, again due to size constraints. Several data sets including a reduced user dataframe and two meta data files were saved and pushed to github as seen in the repository structure. These files are needed for heroku to run the app that was developed. 
+
+Citation: 
+
+Justifying recommendations using distantly-labeled reviews and fined-grained aspects
 Jianmo Ni, Jiacheng Li, Julian McAuley
 Empirical Methods in Natural Language Processing (EMNLP), 2019 [pdf](https://cseweb.ucsd.edu//~jmcauley/pdfs/emnlp19a.pdf)
 
